@@ -14,16 +14,19 @@ class AAAResponse extends Response
 {
     public function getCode(): ?int
     {
+        /** @phpstan-ignore-next-line  */
         return $this->error;
     }
 
     public function getSubCode(): ?int
     {
+        /** @phpstan-ignore-next-line  */
         return $this->sub_error;
     }
 
     public function getMessage(): ?string
     {
+        /** @phpstan-ignore-next-line  */
         return $this->error_description;
     }
 

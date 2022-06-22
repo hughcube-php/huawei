@@ -31,7 +31,6 @@ abstract class Request
      */
     public function __construct(Service $service)
     {
-        /** @phpstan-ignore-next-line */
         $this->service = $service;
 
         $this->initialize();
