@@ -6,7 +6,7 @@
  * Time: 4:19 下午.
  */
 
-namespace HughCube\Laravel\Package;
+namespace HughCube\Laravel\HuaWei;
 
 use Closure;
 use Illuminate\Container\Container as IlluminateContainer;
@@ -17,7 +17,7 @@ use InvalidArgumentException;
 
 /**
  * @property callable|ContainerContract|null $container
- * @mixin Driver
+ * @property callable|Repository|null $config
  */
 class Manager extends IlluminateManager
 {
@@ -70,13 +70,13 @@ class Manager extends IlluminateManager
      * @throws
      * @phpstan-ignore-next-line
      */
-    protected function getConfig(): Repository
+    protected function getContainerConfig(): Repository
     {
         if (!property_exists($this, 'config') || null === $this->config) {
             return $this->getContainer()->make('config');
         }
 
-        if (null === $this->config && is_callable($this->config)) {
+        if (is_callable($this->config)) {
             return call_user_func($this->config);
         }
 
@@ -90,8 +90,9 @@ class Manager extends IlluminateManager
      */
     protected function getPackageConfig($name = null, $default = null)
     {
-        $key = sprintf('%s%s', Package::getFacadeAccessor(), (null === $name ? "" : ".$name"));
-        return $this->getConfig()->get($key, $default);
+        $key = sprintf('%s%s', HuaWei::getFacadeAccessor(), (null === $name ? "" : ".$name"));
+
+        return $this->getContainerConfig()->get($key, $default);
     }
 
     /**
@@ -105,10 +106,10 @@ class Manager extends IlluminateManager
     protected function configuration(string $name): array
     {
         $name = $name ?: $this->getDefaultDriver();
-        $config = $this->getPackageConfig("drivers.$name");
+        $config = $this->getPackageConfig("clients.$name");
 
         if (null === $config) {
-            throw new InvalidArgumentException("Package client [{$name}] not configured.");
+            throw new InvalidArgumentException("huawei client [{$name}] not configured.");
         }
 
         return array_merge($this->getClientDefaultConfig(), $config);
@@ -134,11 +135,11 @@ class Manager extends IlluminateManager
      * Make the Driver instance.
      *
      * @param  array  $config
-     * @return Driver
+     * @return Client
      */
-    public function makeDriver(array $config): Driver
+    public function makeDriver(array $config): Client
     {
-        return new Driver($config);
+        return new Client($config);
     }
 
     /**
@@ -146,6 +147,6 @@ class Manager extends IlluminateManager
      */
     protected function getClientDefaultConfig(): array
     {
-        return $this->getConfig()->get('defaults', []);
+        return $this->getPackageConfig('defaults', []);
     }
 }

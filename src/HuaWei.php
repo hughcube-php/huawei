@@ -6,20 +6,20 @@
  * Time: 10:31 下午.
  */
 
-namespace HughCube\Laravel\Package;
+namespace HughCube\Laravel\HuaWei;
 
 use Illuminate\Support\Facades\Facade as IlluminateFacade;
-use Illuminate\Support\Str;
 
 /**
  * Class Package.
  *
- * @method static Driver driver(string $name = null)
+ * @method static Client client(string $name = null)
+ * @method static Services\Account\Service account()
  *
- * @see \HughCube\Laravel\Package\Manager
- * @see \HughCube\Laravel\Package\ServiceProvider
+ * @see \HughCube\Laravel\HuaWei\Manager
+ * @see \HughCube\Laravel\HuaWei\ServiceProvider
  */
-class Package extends IlluminateFacade
+class HuaWei extends IlluminateFacade
 {
     /**
      * Get the registered name of the component.
@@ -28,6 +28,6 @@ class Package extends IlluminateFacade
      */
     public static function getFacadeAccessor(): string
     {
-        return lcfirst(Str::afterLast(static::class, "\\"));
+        return 'huawei';
     }
 }

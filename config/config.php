@@ -1,14 +1,22 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: hugh.li
+ * Date: 2022/6/22
+ * Time: 16:40
+ */
 
 return [
-    'default' => 'default',
+    'defaults' => [
+        'http' => [],
+    ],
 
-    /**
-     * default config
-     */
-    'defaults' => [],
 
-    'drivers' => [
-        'default' => [],
+    'clients' => [
+        'default' => [
+            'client_id' => '',
+            'client_secret' => '',
+            'redirect_uri' => '',
+        ],
     ],
 ];
