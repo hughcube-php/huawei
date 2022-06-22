@@ -17,7 +17,7 @@ use Orchestra\Testbench\TestCase as OrchestraTestCase;
 class TestCase extends OrchestraTestCase
 {
     /**
-     * @param  Application  $app
+     * @param Application $app
      *
      * @return array
      */
@@ -29,7 +29,7 @@ class TestCase extends OrchestraTestCase
     }
 
     /**
-     * @param  Application  $app
+     * @param Application $app
      */
     protected function getEnvironmentSetUp($app)
     {
@@ -44,7 +44,7 @@ class TestCase extends OrchestraTestCase
     }
 
     /**
-     * @param  Application  $app
+     * @param Application $app
      */
     protected function setupCache(Application $app)
     {
@@ -53,10 +53,10 @@ class TestCase extends OrchestraTestCase
 
         $appConfig->set('cache', [
             'default' => 'default',
-            'stores' => [
+            'stores'  => [
                 'default' => [
                     'driver' => 'file',
-                    'path' => sprintf('/tmp/test/%s', md5(serialize([__METHOD__]))),
+                    'path'   => sprintf('/tmp/test/%s', md5(serialize([__METHOD__]))),
                 ],
             ],
         ]);
