@@ -6,7 +6,7 @@
  * Time: 10:32 下午.
  */
 
-namespace HughCube\Laravel\Package;
+namespace HughCube\Laravel\HuaWei;
 
 use Illuminate\Foundation\Application as LaravelApplication;
 use Illuminate\Support\ServiceProvider as IlluminateServiceProvider;
@@ -20,11 +20,10 @@ class ServiceProvider extends IlluminateServiceProvider
     public function boot()
     {
         $source = realpath(dirname(__DIR__).'/config/config.php');
-
         if ($this->app instanceof LaravelApplication && $this->app->runningInConsole()) {
-            $this->publishes([$source => config_path(sprintf("%s.php", Package::getFacadeAccessor()))]);
+            $this->publishes([$source => config_path(sprintf("%s.php", HuaWei::getFacadeAccessor()))]);
         } elseif ($this->app instanceof LumenApplication) {
-            $this->app->configure(Package::getFacadeAccessor());
+            $this->app->configure(HuaWei::getFacadeAccessor());
         }
     }
 
@@ -33,8 +32,8 @@ class ServiceProvider extends IlluminateServiceProvider
      */
     public function register()
     {
-        $this->app->singleton(Package::getFacadeAccessor(), function ($app) {
-            return new Manager();
+        $this->app->singleton(HuaWei::getFacadeAccessor(), function ($app) {
+            return new Application();
         });
     }
 }

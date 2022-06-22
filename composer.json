@@ -1,5 +1,5 @@
 {
-    "name": "hughcube/laravel-package",
+    "name": "hughcube/laravel-huawei",
     "description": "",
     "license": "MIT",
     "authors": [
@@ -9,8 +9,10 @@
         }
     ],
     "require": {
-        "php": "7.*|8.*",
-        "illuminate/support": ">=8.0"
+        "php": ">=7.2",
+        "ext-json": "*",
+        "pimple/pimple": "*",
+        "hughcube/guzzle-http": "*"
     },
     "require-dev": {
         "laravel/framework": "*",
@@ -21,18 +23,18 @@
     },
     "autoload": {
         "psr-4": {
-            "HughCube\\Laravel\\Package\\": "src"
+            "HughCube\\Laravel\\HuaWei\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "HughCube\\Laravel\\Package\\Tests\\": "tests"
+            "HughCube\\Laravel\\HuaWei\\Tests\\": "tests"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "HughCube\\Laravel\\Package\\ServiceProvider"
+                "HughCube\\Laravel\\HuaWei\\ServiceProvider"
             ]
         }
     },
