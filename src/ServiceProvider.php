@@ -33,7 +33,7 @@ class ServiceProvider extends IlluminateServiceProvider
     public function register()
     {
         $this->app->singleton(HuaWei::getFacadeAccessor(), function ($app) {
-            return new Application();
+            return new Manager();
         });
     }
 }

@@ -8,7 +8,7 @@
 
 namespace HughCube\Laravel\HuaWei\Services\Account\Apis;
 
-use HughCube\Laravel\HuaWei\Request;
+use HughCube\Laravel\HuaWei\Http\Request;
 
 abstract class AAARequest extends Request
 {

@@ -8,17 +8,16 @@
 
 namespace HughCube\Laravel\HuaWei\Services\Account;
 
-use HughCube\Laravel\HuaWei\Application;
-use HughCube\Laravel\HuaWei\Container;
+use HughCube\Laravel\HuaWei\Client;
 use HughCube\Laravel\HuaWei\Services\Account\Apis\GetTokenRequest;
 use HughCube\Laravel\HuaWei\Services\Account\Apis\RefreshTokenRequest;
 use HughCube\Laravel\HuaWei\Services\Account\Apis\TokenInfoRequest;
 
 /**
- * @mixin Application
+ * @mixin Client
  * @see
  */
-class Service extends Container
+class Service extends \HughCube\Laravel\HuaWei\Service
 {
     public function getHttpBaseUri(): string
     {

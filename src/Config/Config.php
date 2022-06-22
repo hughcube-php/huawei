@@ -6,12 +6,11 @@
  * Time: 11:14
  */
 
-namespace HughCube\Laravel\HuaWei;
+namespace HughCube\Laravel\HuaWei\Config;
 
 use ArrayIterator;
-use HughCube\Laravel\HuaWei\Support\Collection;
 
-class Config extends Collection
+class Config
 {
     /**
      * The collection data.
@@ -49,7 +48,7 @@ class Config extends Collection
      *
      * @return static
      */
-    public function merge(iterable $items): Collection
+    public function merge(iterable $items): Config
     {
         /** @phpstan-ignore-next-line */
         $clone = new static($this->all());

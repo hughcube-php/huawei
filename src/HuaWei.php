@@ -9,12 +9,12 @@
 namespace HughCube\Laravel\HuaWei;
 
 use Illuminate\Support\Facades\Facade as IlluminateFacade;
-use Illuminate\Support\Str;
 
 /**
  * Class Package.
  *
- * @method static Driver driver(string $name = null)
+ * @method static Client client(string $name = null)
+ * @method static Services\Account\Service account()
  *
  * @see \HughCube\Laravel\HuaWei\Manager
  * @see \HughCube\Laravel\HuaWei\ServiceProvider

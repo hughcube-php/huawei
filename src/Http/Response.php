@@ -6,7 +6,7 @@
  * Time: 14:56
  */
 
-namespace HughCube\Laravel\HuaWei;
+namespace HughCube\Laravel\HuaWei\Http;
 
 use HughCube\GuzzleHttp\LazyResponse;
 

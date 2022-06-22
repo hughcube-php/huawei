@@ -18,8 +18,9 @@ class GetTokenRequest extends AAARequest
     {
         $this
             ->withFormValue('grant_type', 'authorization_code')
-            ->withFormValue('client_id', $this->getContainer()->config->get('client_id'))
-            ->withFormValue('client_secret', $this->getContainer()->config->get('client_id'));
+            ->withFormValue('client_id', $this->getService()->config->get('client_id'))
+            ->withFormValue('client_secret', $this->getService()->config->get('client_id'))
+            ->withRedirectUri($this->getService()->config->get('redirect_uri'));
     }
 
     public function getUri(): string

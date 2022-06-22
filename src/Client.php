@@ -8,16 +8,17 @@
 
 namespace HughCube\Laravel\HuaWei;
 
-use HughCube\GuzzleHttp\Client;
-use HughCube\Laravel\HuaWei\Providers\ConfigServiceProvider;
-use HughCube\Laravel\HuaWei\Providers\HttpClientServiceProvider;
+use GuzzleHttp\RequestOptions;
+use HughCube\GuzzleHttp\Client as HttpClient;
+use HughCube\Laravel\HuaWei\Config\Config;
+use HughCube\Laravel\HuaWei\Support\Container;
 
 /**
  * @property Config $config
- * @property Client $http_client
+ * @property HttpClient $http_client
  * @property Services\Account\Service $account
  */
-class Application extends Container
+class Client extends Container
 {
     /**
      * @var array
@@ -29,7 +30,11 @@ class Application extends Container
     /**
      * @var array
      */
-    protected $defaultConfig = [];
+    protected $defaultConfig = [
+        'http' => [
+            RequestOptions::HTTP_ERRORS => false,
+        ]
+    ];
 
     /**
      * @var array
@@ -67,8 +72,8 @@ class Application extends Container
     public function getProviders(): array
     {
         return array_merge([
-            ConfigServiceProvider::class,
-            HttpClientServiceProvider::class,
+            \HughCube\Laravel\HuaWei\Config\ServiceProvider::class,
+            \HughCube\Laravel\HuaWei\Http\ServiceProvider::class,
         ], $this->providers);
     }
 
@@ -80,5 +85,10 @@ class Application extends Container
         foreach ($providers as $provider) {
             parent::register(new $provider());
         }
+    }
+
+    public function account(): Services\Account\Service
+    {
+        return $this->account;
     }
 }

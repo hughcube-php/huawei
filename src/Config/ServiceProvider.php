@@ -6,13 +6,12 @@
  * Time: 11:16
  */
 
-namespace HughCube\Laravel\HuaWei\Providers;
+namespace HughCube\Laravel\HuaWei\Config;
 
-use HughCube\Laravel\HuaWei\Config;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 
-class ConfigServiceProvider implements ServiceProviderInterface
+class ServiceProvider implements ServiceProviderInterface
 {
     /**
      * Registers services on the given container.

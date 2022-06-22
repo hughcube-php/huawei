@@ -6,19 +6,20 @@
  * Time: 14:56
  */
 
-namespace HughCube\Laravel\HuaWei;
+namespace HughCube\Laravel\HuaWei\Http;
 
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\RequestOptions;
 use HughCube\GuzzleHttp\LazyResponse;
+use HughCube\Laravel\HuaWei\Service;
 use Illuminate\Support\Str;
 
 abstract class Request
 {
     /**
-     * @var Application
+     * @var Service
      */
-    private $container = null;
+    private $service;
 
     /**
      * @var array
@@ -26,12 +27,12 @@ abstract class Request
     protected $httpOptions = [];
 
     /**
-     * @param  Container  $container
+     * @param  Service  $service
      */
-    public function __construct(Container $container)
+    public function __construct(Service $service)
     {
         /** @phpstan-ignore-next-line */
-        $this->container = $container;
+        $this->service = $service;
 
         $this->initialize();
     }
@@ -51,11 +52,11 @@ abstract class Request
     }
 
     /**
-     * @return Application
+     * @return Service
      */
-    public function getContainer(): Container
+    public function getService(): Service
     {
-        return $this->container;
+        return $this->service;
     }
 
     abstract public function getUri(): string;
@@ -72,13 +73,13 @@ abstract class Request
      */
     public function request(): Response
     {
-        $container = $this->getContainer();
+        $service = $this->getService();
 
-        if (method_exists($container, 'getHttpBaseUri') && !empty($baseUrl = $container->getHttpBaseUri())) {
+        if (method_exists($service, 'getHttpBaseUri') && !empty($baseUrl = $service->getHttpBaseUri())) {
             $this->withBaseUri($baseUrl);
         }
 
-        $response = $container->http_client->request(
+        $response = $service->http_client->requestLazy(
             $this->getMethod(),
             $this->getUri(),
             $this->getHttpOptions()

@@ -6,7 +6,7 @@
  * Time: 14:31
  */
 
-namespace HughCube\Laravel\HuaWei;
+namespace HughCube\Laravel\HuaWei\Support;
 
 class Container extends \Pimple\Container
 {
@@ -31,5 +31,14 @@ class Container extends \Pimple\Container
     public function __set(string $id, $value)
     {
         $this->offsetSet($id, $value);
+    }
+
+    public function toArray(): array
+    {
+        $values = [];
+        foreach ($this->keys() as $key) {
+            $values[$key] = $this->offsetGet($key);
+        }
+        return $values;
     }
 }

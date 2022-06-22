@@ -6,13 +6,13 @@
  * Time: 11:16
  */
 
-namespace HughCube\Laravel\HuaWei\Providers;
+namespace HughCube\Laravel\HuaWei\Http;
 
 use HughCube\GuzzleHttp\Client;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 
-class HttpClientServiceProvider implements ServiceProviderInterface
+class ServiceProvider implements ServiceProviderInterface
 {
     public function register(Container $pimple)
     {

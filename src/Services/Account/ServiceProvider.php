@@ -13,9 +13,6 @@ use Pimple\ServiceProviderInterface;
 
 class ServiceProvider implements ServiceProviderInterface
 {
-    /**
-     * {@inheritdoc}.
-     */
     public function register(Container $pimple)
     {
         if (!$pimple->offsetExists('account')) {

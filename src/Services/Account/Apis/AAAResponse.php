@@ -8,13 +8,8 @@
 
 namespace HughCube\Laravel\HuaWei\Services\Account\Apis;
 
-use HughCube\Laravel\HuaWei\Response;
+use HughCube\Laravel\HuaWei\Http\Response;
 
-/**
- * @property-read null|integer $error
- * @property-read null|integer $sub_error
- * @property-read null|string $error_description
- */
 class AAAResponse extends Response
 {
     public function getCode(): ?int
