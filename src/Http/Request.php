@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: hugh.li
  * Date: 2022/6/22
- * Time: 14:56
+ * Time: 14:56.
  */
 
 namespace HughCube\Laravel\HuaWei\Http;
@@ -27,7 +27,7 @@ abstract class Request
     protected $httpOptions = [];
 
     /**
-     * @param  Service  $service
+     * @param Service $service
      */
     public function __construct(Service $service)
     {
@@ -89,7 +89,8 @@ abstract class Request
 
     /**
      * @param $when
-     * @param  callable  $callable
+     * @param callable $callable
+     *
      * @return static
      */
     public function when($when, callable $callable): Request
@@ -103,7 +104,8 @@ abstract class Request
 
     /**
      * @param $value
-     * @param  callable  $callable
+     * @param callable $callable
+     *
      * @return static
      */
     public function whenEmpty($value, callable $callable): Request
@@ -117,7 +119,8 @@ abstract class Request
 
     /**
      * @param $value
-     * @param  callable  $callable
+     * @param callable $callable
+     *
      * @return static
      */
     public function whenNotEmpty($value, callable $callable): Request
@@ -131,7 +134,8 @@ abstract class Request
 
     /**
      * @param $value
-     * @param  callable  $callable
+     * @param callable $callable
+     *
      * @return static
      */
     public function whenNull($value, callable $callable): Request
@@ -145,7 +149,8 @@ abstract class Request
 
     /**
      * @param $value
-     * @param  callable  $callable
+     * @param callable $callable
+     *
      * @return static
      */
     public function whenNotNull($value, callable $callable): Request
@@ -158,18 +163,21 @@ abstract class Request
     }
 
     /**
-     * @param  string  $name
+     * @param string $name
      * @param $value
+     *
      * @return static
      */
     public function with(string $name, $value): Request
     {
         $this->httpOptions[$name] = $value;
+
         return $this;
     }
 
     /**
      * @param $value
+     *
      * @return static
      */
     public function withBaseUri($value): Request
@@ -180,17 +188,20 @@ abstract class Request
     /**
      * @param $name
      * @param $value
+     *
      * @return static
      */
     public function withQueryValue($name, $value): Request
     {
         $this->httpOptions[RequestOptions::QUERY][$name] = $value;
+
         return $this;
     }
 
     /**
      * @param $name
      * @param $value
+     *
      * @return static
      */
     public function withJsonValue($name, $value): Request
@@ -203,6 +214,7 @@ abstract class Request
     /**
      * @param $name
      * @param $value
+     *
      * @return static
      */
     public function withFormValue($name, $value): Request

@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: hugh.li
  * Date: 2022/6/22
- * Time: 11:16
+ * Time: 11:16.
  */
 
 namespace HughCube\Laravel\HuaWei\Config;
@@ -19,7 +19,7 @@ class ServiceProvider implements ServiceProviderInterface
      * This method should only be used to configure services and parameters.
      * It should not get services.
      *
-     * @param  Container  $pimple  A container instance
+     * @param Container $pimple A container instance
      */
     public function register(Container $pimple)
     {

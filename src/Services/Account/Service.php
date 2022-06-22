@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: hugh.li
  * Date: 2022/6/22
- * Time: 10:43
+ * Time: 10:43.
  */
 
 namespace HughCube\Laravel\HuaWei\Services\Account;
@@ -15,6 +15,7 @@ use HughCube\Laravel\HuaWei\Services\Account\Apis\TokenInfoRequest;
 
 /**
  * @mixin Client
+ *
  * @see
  */
 class Service extends \HughCube\Laravel\HuaWei\Service

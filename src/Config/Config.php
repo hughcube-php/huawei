@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: hugh.li
  * Date: 2022/6/22
- * Time: 11:14
+ * Time: 11:14.
  */
 
 namespace HughCube\Laravel\HuaWei\Config;
@@ -22,7 +22,7 @@ class Config
     /**
      * set data.
      *
-     * @param  array  $items
+     * @param array $items
      */
     public function __construct(array $items = [])
     {
@@ -44,7 +44,7 @@ class Config
     /**
      * Merge data.
      *
-     * @param  iterable  $items
+     * @param iterable $items
      *
      * @return static
      */
@@ -63,7 +63,7 @@ class Config
     /**
      * To determine Whether the specified element exists.
      *
-     * @param  int|string  $key
+     * @param int|string $key
      *
      * @return bool
      */
@@ -99,8 +99,8 @@ class Config
     /**
      * add the item value.
      *
-     * @param  int|string  $key
-     * @param  mixed  $value
+     * @param int|string $key
+     * @param mixed      $value
      */
     public function add($key, $value)
     {
@@ -112,8 +112,8 @@ class Config
     /**
      * Set the item value.
      *
-     * @param  int|string  $key
-     * @param  mixed  $value
+     * @param int|string $key
+     * @param mixed      $value
      */
     public function set($key, $value)
     {
@@ -123,8 +123,8 @@ class Config
     /**
      * Retrieve item from Collection.
      *
-     * @param  int|string  $key
-     * @param  mixed  $default
+     * @param int|string $key
+     * @param mixed      $default
      *
      * @return mixed
      */
@@ -133,13 +133,14 @@ class Config
         if (!$this->has($key)) {
             return $default;
         }
+
         return $this->items[$key];
     }
 
     /**
      * Remove item form Collection.
      *
-     * @param  int|string  $key
+     * @param int|string $key
      */
     public function forget($key)
     {
@@ -163,7 +164,7 @@ class Config
      * @see http://php.net/manual/en/iteratoraggregate.getiterator.php
      *
      * @return ArrayIterator An instance of an object implementing <b>Iterator</b> or
-     *                        <b>Traversable</b>
+     *                       <b>Traversable</b>
      */
     public function getIterator(): ArrayIterator
     {
@@ -189,7 +190,7 @@ class Config
     /**
      * Get a data by key.
      *
-     * @param  int|string  $key
+     * @param int|string $key
      *
      * @return mixed
      */
@@ -201,8 +202,8 @@ class Config
     /**
      * Assigns a value to the specified data.
      *
-     * @param  int|string  $key
-     * @param  mixed  $value
+     * @param int|string $key
+     * @param mixed      $value
      */
     public function __set($key, $value)
     {
@@ -212,7 +213,7 @@ class Config
     /**
      * Whether or not an data exists by key.
      *
-     * @param  int|string  $key
+     * @param int|string $key
      *
      * @return bool
      */
@@ -224,7 +225,7 @@ class Config
     /**
      * Unset an data by key.
      *
-     * @param  int|string  $key
+     * @param int|string $key
      */
     public function __unset($key)
     {

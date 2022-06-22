@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: hugh.li
  * Date: 2022/6/22
- * Time: 14:31
+ * Time: 14:31.
  */
 
 namespace HughCube\Laravel\HuaWei\Support;
@@ -13,7 +13,7 @@ class Container extends \Pimple\Container
     /**
      * Magic get access.
      *
-     * @param  string  $id
+     * @param string $id
      *
      * @return mixed
      */
@@ -25,8 +25,8 @@ class Container extends \Pimple\Container
     /**
      * Magic set access.
      *
-     * @param  string  $id
-     * @param  mixed  $value
+     * @param string $id
+     * @param mixed  $value
      */
     public function __set(string $id, $value)
     {
@@ -39,6 +39,7 @@ class Container extends \Pimple\Container
         foreach ($this->keys() as $key) {
             $values[$key] = $this->offsetGet($key);
         }
+
         return $values;
     }
 }

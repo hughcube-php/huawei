@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: hugh.li
  * Date: 2022/6/22
- * Time: 10:58
+ * Time: 10:58.
  */
 
 namespace HughCube\Laravel\HuaWei;
@@ -14,8 +14,8 @@ use HughCube\Laravel\HuaWei\Config\Config;
 use HughCube\Laravel\HuaWei\Support\Container;
 
 /**
- * @property Config $config
- * @property HttpClient $http_client
+ * @property Config                   $config
+ * @property HttpClient               $http_client
  * @property Services\Account\Service $account
  */
 class Client extends Container
@@ -33,7 +33,7 @@ class Client extends Container
     protected $defaultConfig = [
         'http' => [
             RequestOptions::HTTP_ERRORS => false,
-        ]
+        ],
     ];
 
     /**
@@ -44,8 +44,8 @@ class Client extends Container
     /**
      * Constructor.
      *
-     * @param  array  $config
-     * @param  array  $prepends
+     * @param array $config
+     * @param array $prepends
      */
     public function __construct(array $config = [], array $prepends = [])
     {
@@ -78,7 +78,7 @@ class Client extends Container
     }
 
     /**
-     * @param  array  $providers
+     * @param array $providers
      */
     public function registerProviders(array $providers)
     {

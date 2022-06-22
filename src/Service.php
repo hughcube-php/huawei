@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: hugh.li
  * Date: 2022/6/22
- * Time: 19:55
+ * Time: 19:55.
  */
 
 namespace HughCube\Laravel\HuaWei;
