@@ -3,13 +3,14 @@
  * Created by PhpStorm.
  * User: hugh.li
  * Date: 2022/6/22
- * Time: 15:17
+ * Time: 15:17.
  */
 
 namespace HughCube\Laravel\HuaWei\Services\Account\Apis;
 
 /**
  * @method RefreshTokenResponse request()
+ *
  * @see https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/account-obtain-token_hms_reference-0000001050048618
  */
 class RefreshTokenRequest extends AAARequest

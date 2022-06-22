@@ -17,12 +17,12 @@ use InvalidArgumentException;
 
 /**
  * @property callable|ContainerContract|null $container
- * @property callable|Repository|null $config
+ * @property callable|Repository|null        $config
  */
 class Manager extends IlluminateManager
 {
     /**
-     * @param  callable|ContainerContract|null  $container
+     * @param callable|ContainerContract|null $container
      */
     public function __construct($container = null)
     {
@@ -40,7 +40,8 @@ class Manager extends IlluminateManager
     /**
      * Call a custom driver creator.
      *
-     * @param  string  $driver
+     * @param string $driver
+     *
      * @return mixed
      */
     protected function callCustomCreator($driver)
@@ -65,9 +66,10 @@ class Manager extends IlluminateManager
     }
 
     /**
+     * @throws
+     *
      * @return Repository
      *
-     * @throws
      * @phpstan-ignore-next-line
      */
     protected function getContainerConfig(): Repository
@@ -84,13 +86,14 @@ class Manager extends IlluminateManager
     }
 
     /**
-     * @param  null|string|int  $name
-     * @param  mixed  $default
+     * @param null|string|int $name
+     * @param mixed           $default
+     *
      * @return array|mixed
      */
     protected function getPackageConfig($name = null, $default = null)
     {
-        $key = sprintf('%s%s', HuaWei::getFacadeAccessor(), (null === $name ? "" : ".$name"));
+        $key = sprintf('%s%s', HuaWei::getFacadeAccessor(), (null === $name ? '' : ".$name"));
 
         return $this->getContainerConfig()->get($key, $default);
     }
@@ -98,10 +101,11 @@ class Manager extends IlluminateManager
     /**
      * Get the configuration for a client.
      *
-     * @param  string  $name
-     * @return array
+     * @param string $name
      *
      * @throws InvalidArgumentException
+     *
+     * @return array
      */
     protected function configuration(string $name): array
     {
@@ -134,7 +138,8 @@ class Manager extends IlluminateManager
     /**
      * Make the Driver instance.
      *
-     * @param  array  $config
+     * @param array $config
+     *
      * @return Client
      */
     public function makeDriver(array $config): Client

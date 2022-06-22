@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: hugh.li
  * Date: 2022/6/22
- * Time: 16:40
+ * Time: 16:40.
  */
 
 return [
@@ -11,12 +11,11 @@ return [
         'http' => [],
     ],
 
-
     'clients' => [
         'default' => [
-            'client_id' => '',
+            'client_id'     => '',
             'client_secret' => '',
-            'redirect_uri' => '',
+            'redirect_uri'  => '',
         ],
     ],
 ];
