@@ -8,7 +8,7 @@
 
 namespace HughCube\Laravel\HuaWei;
 
-use Illuminate\Support\Facades\Facade as IlluminateFacade;
+use HughCube\Laravel\ServiceSupport\LazyFacade;
 
 /**
  * Class Package.
@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Facade as IlluminateFacade;
  * @see \HughCube\Laravel\HuaWei\Manager
  * @see \HughCube\Laravel\HuaWei\ServiceProvider
  */
-class HuaWei extends IlluminateFacade
+class HuaWei extends LazyFacade
 {
     /**
      * Get the registered name of the component.

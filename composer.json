@@ -12,7 +12,8 @@
         "php": ">=7.2",
         "ext-json": "*",
         "pimple/pimple": "*",
-        "hughcube/guzzle-http": "*"
+        "hughcube/guzzle-http": "*",
+        "hughcube/laravel-service-support": "*"
     },
     "require-dev": {
         "laravel/framework": "*",
@@ -29,13 +30,6 @@
     "autoload-dev": {
         "psr-4": {
             "HughCube\\Laravel\\HuaWei\\Tests\\": "tests"
-        }
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "HughCube\\Laravel\\HuaWei\\ServiceProvider"
-            ]
         }
     },
     "scripts": {
