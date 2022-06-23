@@ -22,12 +22,15 @@ use HughCube\Laravel\ServiceSupport\LazyFacade;
 class HuaWei extends LazyFacade
 {
     /**
-     * Get the registered name of the component.
-     *
-     * @return string
+     * @inheritDoc
      */
     public static function getFacadeAccessor(): string
     {
         return 'huawei';
+    }
+
+    protected static function registerServiceProvider($app)
+    {
+        $app->register(ServiceProvider::class);
     }
 }
