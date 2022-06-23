@@ -9,8 +9,6 @@
 namespace HughCube\Laravel\HuaWei;
 
 use HughCube\Laravel\ServiceSupport\Manager as ServiceSupportManager;
-use Illuminate\Contracts\Config\Repository;
-use Illuminate\Contracts\Container\Container as ContainerContract;
 
 class Manager extends ServiceSupportManager
 {
