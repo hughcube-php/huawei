@@ -8,28 +8,23 @@
 
 namespace HughCube\Laravel\HuaWei;
 
-use Illuminate\Support\ServiceProvider as IlluminateServiceProvider;
-use Laravel\Lumen\Application as LumenApplication;
+use HughCube\Laravel\ServiceSupport\ServiceProvider as ServiceSupportServiceProvider;
 
-class ServiceProvider extends IlluminateServiceProvider
+class ServiceProvider extends ServiceSupportServiceProvider
 {
     /**
-     * Boot the provider.
+     * @inheritDoc
      */
-    public function boot()
+    protected function getFacadeAccessor(): string
     {
-        if ($this->app instanceof LumenApplication) {
-            $this->app->configure(HuaWei::getFacadeAccessor());
-        }
+        return HuaWei::getFacadeAccessor();
     }
 
     /**
-     * Register the provider.
+     * @inheritDoc
      */
-    public function register()
+    protected function createFacadeRoot($app): Manager
     {
-        $this->app->singleton(HuaWei::getFacadeAccessor(), function ($app) {
-            return new Manager();
-        });
+        return new Manager();
     }
 }
