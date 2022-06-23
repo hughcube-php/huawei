@@ -20,7 +20,7 @@ class RefreshTokenRequest extends AAARequest
         $this
             ->withFormValue('grant_type', 'refresh_token')
             ->withFormValue('client_id', $this->getService()->config->get('client_id'))
-            ->withFormValue('client_secret', $this->getService()->config->get('client_id'));
+            ->withFormValue('client_secret', $this->getService()->config->get('client_secret'));
     }
 
     public function getUri(): string

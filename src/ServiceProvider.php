@@ -10,12 +10,12 @@ namespace HughCube\Laravel\HuaWei;
 
 class ServiceProvider extends \HughCube\Laravel\ServiceSupport\ServiceProvider
 {
-    protected function getFacadeAccessor(): string
+    protected function getPackageFacadeAccessor(): string
     {
         return HuaWei::getFacadeAccessor();
     }
 
-    protected function createFacadeRoot($app): Manager
+    protected function createPackageFacadeRoot($app): Manager
     {
         return new Manager();
     }

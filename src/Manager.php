@@ -12,12 +12,17 @@ use HughCube\Laravel\ServiceSupport\Manager as ServiceSupportManager;
 
 class Manager extends ServiceSupportManager
 {
+    public function getDriversConfigKey(): string
+    {
+        return 'clients';
+    }
+
     protected function makeDriver(array $config): Client
     {
         return new Client($config);
     }
 
-    protected function getFacadeAccessor(): string
+    protected function getPackageFacadeAccessor(): string
     {
         return HuaWei::getFacadeAccessor();
     }
