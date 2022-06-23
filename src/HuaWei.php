@@ -8,7 +8,7 @@
 
 namespace HughCube\Laravel\HuaWei;
 
-use HughCube\Laravel\ServiceSupport\Facade;
+use HughCube\Laravel\ServiceSupport\LazyFacade;
 
 /**
  * Class Package.
@@ -19,7 +19,7 @@ use HughCube\Laravel\ServiceSupport\Facade;
  * @see \HughCube\Laravel\HuaWei\Manager
  * @see \HughCube\Laravel\HuaWei\ServiceProvider
  */
-class HuaWei extends Facade
+class HuaWei extends LazyFacade
 {
     /**
      * @inheritDoc
@@ -27,5 +27,10 @@ class HuaWei extends Facade
     public static function getFacadeAccessor(): string
     {
         return 'huawei';
+    }
+
+    protected static function registerServiceProvider($app)
+    {
+        $app->register(ServiceProvider::class);
     }
 }
