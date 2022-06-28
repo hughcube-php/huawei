@@ -25,7 +25,7 @@ class OrderConfirmRequest extends AAARequest
 
     public function getUri(): string
     {
-        return '/applications/purchases/tokens/verify';
+        return '/applications/v2/purchases/confirm';
     }
 
     public function withPurchaseToken($token)
