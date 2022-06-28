@@ -15,12 +15,12 @@ use HughCube\Laravel\HuaWei\Support\Container;
 use Illuminate\Contracts\Cache\Repository as CacheRepository;
 
 /**
- * @property Config $config
- * @property HttpClient $http_client
- * @property CacheRepository $cache
- * @property Services\Iap\Service $iap
+ * @property Config                   $config
+ * @property HttpClient               $http_client
+ * @property CacheRepository          $cache
+ * @property Services\Iap\Service     $iap
  * @property Services\Account\Service $account
- * @property Services\AppAt\Service $appat
+ * @property Services\AppAt\Service   $appat
  */
 class Client extends Container
 {
@@ -50,8 +50,8 @@ class Client extends Container
     /**
      * Constructor.
      *
-     * @param  array  $config
-     * @param  array  $prepends
+     * @param array $config
+     * @param array $prepends
      */
     public function __construct(array $config = [], array $prepends = [])
     {
@@ -85,7 +85,7 @@ class Client extends Container
     }
 
     /**
-     * @param  array  $providers
+     * @param array $providers
      */
     public function registerProviders(array $providers)
     {

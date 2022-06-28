@@ -33,6 +33,7 @@ class Service extends \HughCube\Laravel\HuaWei\Service
         $response = $this->createGetClientCredentialsRequest()->request();
 
         $auth = sprintf('APPAT:%s', $response->access_token);
-        return "Basic ".base64_encode(utf8_encode($auth));
+
+        return 'Basic '.base64_encode(utf8_encode($auth));
     }
 }
