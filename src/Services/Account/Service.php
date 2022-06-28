@@ -9,6 +9,7 @@
 namespace HughCube\Laravel\HuaWei\Services\Account;
 
 use HughCube\Laravel\HuaWei\Client;
+use HughCube\Laravel\HuaWei\Services\Account\Apis\GetClientCredentialsRequest;
 use HughCube\Laravel\HuaWei\Services\Account\Apis\GetTokenRequest;
 use HughCube\Laravel\HuaWei\Services\Account\Apis\RefreshTokenRequest;
 use HughCube\Laravel\HuaWei\Services\Account\Apis\TokenInfoRequest;
@@ -38,5 +39,10 @@ class Service extends \HughCube\Laravel\HuaWei\Service
     public function createTokenInfoRequest(): TokenInfoRequest
     {
         return new TokenInfoRequest($this);
+    }
+
+    public function createGetClientCredentialsRequest(): GetClientCredentialsRequest
+    {
+        return new GetClientCredentialsRequest($this);
     }
 }

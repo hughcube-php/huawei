@@ -14,7 +14,9 @@ use HughCube\Laravel\ServiceSupport\LazyFacade;
  * Class Package.
  *
  * @method static Client client(string $name = null)
+ *
  * @method static Services\Account\Service account()
+ * @method static Services\Iap\Service iap()
  *
  * @see \HughCube\Laravel\HuaWei\Manager
  * @see \HughCube\Laravel\HuaWei\ServiceProvider
