@@ -17,4 +17,27 @@ namespace HughCube\Laravel\HuaWei\Services\Iap\Apis;
  */
 class OrderVerifyTokenResponse extends AAAResponse
 {
+    /**
+     * @return null|array
+     */
+    public function getPurchaseData(): ?array
+    {
+        $data = json_decode($this->purchaseTokenData, true);
+        return is_array($data) ? $data : null;
+    }
+
+    public function getOrderId(): ?string
+    {
+        return $this->getPurchaseData()['orderId'] ?? null;
+    }
+
+    public function getProductId(): ?string
+    {
+        return $this->getPurchaseData()['productId'] ?? null;
+    }
+
+    public function getDeveloperPayload(): ?string
+    {
+        return $this->getPurchaseData()['developerPayload'] ?? null;
+    }
 }
